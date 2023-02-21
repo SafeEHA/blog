@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const Signup = () => {
       body: JSON.stringify(userCredentials),
     }).then(() => {
       alert("Publisher Account has been created!");
+      history.push("/login");
     });
   };
 

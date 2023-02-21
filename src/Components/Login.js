@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +17,14 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
+        if (response.length >= 1) {
+          // User account exists if response length is 1 - then set authentication on localStorage
+          localStorage.setItem("currentUser", email);
+          history.push("/create");
+        } else {
+          // If response is 0 - then ask user to input correct credentials or create an account
+          alert("Invalid credentials!");
+        }
       });
   };
 
