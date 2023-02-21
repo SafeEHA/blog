@@ -3,11 +3,15 @@ import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const currentUser = localStorage.getItem("currentUser");
-
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author] = useState(currentUser);
   const history = useHistory();
+
+  if (!currentUser) {
+    // Redirects guest to homepage
+    history.push("/");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

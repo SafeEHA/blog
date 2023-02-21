@@ -21,6 +21,7 @@ const Login = () => {
           // User account exists if response length is 1 - then set authentication on localStorage
           localStorage.setItem("currentUser", email);
           history.push("/create");
+          window.location.reload();
         } else {
           // If response is 0 - then ask user to input correct credentials or create an account
           alert("Invalid credentials!");

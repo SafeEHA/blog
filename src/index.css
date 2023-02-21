@@ -157,3 +157,8 @@
 /* .wrapper > div {
   margin-bottom: 3rem;
 } */
+
+
+.hider {
+  display: none;
+}
