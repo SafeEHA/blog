@@ -85,12 +85,21 @@
   color: #f1356d;
   margin-bottom: 30px;
 }
-.create input, .create textarea, .create select {
+.create input {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
-  border: 1px solid #ddd;
   box-sizing: border-box;
+  display: block;
+  border-radius: 8px;
+}
+.create textarea {
+  width: 375px;
+  height: 350px;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid grey;
+  border-radius: 8px;
   display: block;
 }
 .create button {
@@ -154,11 +163,15 @@
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
-/* .wrapper > div {
-  margin-bottom: 3rem;
-} */
-
 
 .hider {
   display: none;
+}
+.error{
+  color: red;
+  display: block;
+  padding: 8px 16px;
+  font-size: 20px;
+  margin-top: 24px;
+  text-align: left;
 }
