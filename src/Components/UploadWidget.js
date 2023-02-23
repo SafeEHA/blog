@@ -22,6 +22,6 @@ const UploadWidget = () => {
       }
     );
   }, []);
-  return ( <button style={{background: '#fff' , color: "grey"}} onClick={() => widgetRef.current.open()}>Upload</button> );
+  return ( <button type="button" style={{background: '#fff' , color: "grey"}} onClick={() => widgetRef.current.open()}>Upload</button> );
 };
 export default UploadWidget;

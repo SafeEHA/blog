@@ -32,7 +32,7 @@ const Create = () => {
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input
           type="text"
@@ -55,7 +55,7 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <UploadWidget />
-        <button onClick={handleSubmit}>Add Blog</button>
+        <button>Add Blog</button>
       </form>
     </div>
   );
