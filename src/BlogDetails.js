@@ -30,6 +30,8 @@ const BlogDetails = () => {
   const handleEdit = (e) => {
     e.preventDefault();
     const image = localStorage.getItem("currentImage");
+    const author = localStorage.getItem("currentUser");
+    blogObj.author = author
     if (image) {
       blogObj.image = image;
     }
@@ -90,7 +92,7 @@ const BlogDetails = () => {
         )}
       </div>
       <div className={editing ? "create" : "hider"}>
-        <h2>Add a New Blog</h2>
+        <h2>Edit Blog</h2>
         <form onSubmit={handleEdit}>
           <label>Blog title:</label>
           <input
@@ -106,7 +108,12 @@ const BlogDetails = () => {
             onChange={(e) => setBlogObj({ ...blogObj, body: e.target.value })}
           ></textarea>
           <label>Blog author:</label>
-          <span>{author}</span>
+          <input
+          type="text"
+          disabled
+          required
+          value={author}
+          />
           <UploadWidget />
           <button type="submit">Save Edit</button>
         </form>
