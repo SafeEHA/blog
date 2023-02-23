@@ -1,20 +1,50 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import validator from "validator";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!email || !password) {
+      setError({
+        email: "All fields are required",
+        password: "All fields are required",
+      });
+      return;
+    }
+    if (!validator.isEmail(email)) {
+      setError({
+        email: "invalid email",
+        password: null,
+      });
+      return;
+    }
+    if (!validator.isStrongPassword(password)) {
+      setError({
+        email: null,
+        password: "password not strong enough",
+      });
+      return;
+    }
+    setError(null);
+
     console.log(email, password);
 
-    fetch(`http://localhost:8000/users?email=${email}&password=${password}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
+    fetch(
+      `http://json-server.devops-playground.com/users?email=${email}&password=${password}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    )
       .then((res) => res.json())
       .then((response) => {
         if (response.length >= 1) {
@@ -38,18 +68,24 @@ const Login = () => {
           <input
             type="email"
             className="text-field1"
+            placeholder="johndoe@abc.com"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
+          {error.email ? <span className="error">{error.email}</span> : null}
         </div>
         <div className="form-group">
           <label className="title2">Password</label>
           <input
             type="password"
             className="text-field2"
+            placeholder="********"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+          {error.password ? (
+            <span className="error">{error.password}</span>
+          ) : null}
         </div>
         <button>Log in</button>
       </form>

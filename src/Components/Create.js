@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import UploadWidget from "./UploadWidget";
 
 const Create = () => {
   const currentUser = localStorage.getItem("currentUser");
@@ -15,9 +16,10 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body, author };
+    const image = localStorage.getItem("currentImage")
+    const blog = { title, body, author, image };
 
-    fetch("http://localhost:8000/blogs/", {
+    fetch("http://json-server.devops-playground.com/blogs/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
@@ -30,7 +32,7 @@ const Create = () => {
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>Blog title:</label>
         <input
           type="text"
@@ -52,7 +54,8 @@ const Create = () => {
           value={author}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button>Add Blog</button>
+        <UploadWidget />
+        <button onClick={handleSubmit}>Add Blog</button>
       </form>
     </div>
   );

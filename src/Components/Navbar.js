@@ -13,7 +13,7 @@ const loggedIn = localStorage.getItem("currentUser") ? "" : "hider";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>Safe's Lifestyle Blog</h1>
+      <h1>COE Blog</h1>
       <div className="links">
         <Link to="/">Home</Link>
       </div>
