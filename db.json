@@ -1,8 +1,17 @@
 {
-  "users":[
+  "users": [
     {
-      "email": "abc@gmail.com",
+      "email": "  ",
       "password": "P@55w0rd"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "My favorite snack",
+      "body": "Asun is my favorite snack",
+      "author": "Safe",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Asun.jpg"
     }
   ]
 }
