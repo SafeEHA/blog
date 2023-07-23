@@ -6,7 +6,7 @@ const Home = () => {
     error,
     isPending,
     data: blogs,
-  } = useFetch("http://json-server.devops-playground.com/blogs");
+  } = useFetch("https://my-json-server.typicode.com/SafeEHA/blog/blogs");
 
   return (
     <div className="home">

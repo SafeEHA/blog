@@ -19,7 +19,7 @@ const Create = () => {
     const image = localStorage.getItem("currentImage")
     const blog = { title, body, author, image };
 
-    fetch("http://json-server.devops-playground.com/blogs/", {
+    fetch("https://my-json-server.typicode.com/SafeEHA/blog/blogs/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

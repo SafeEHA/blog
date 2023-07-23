@@ -39,7 +39,7 @@ const Login = () => {
     console.log(email, password);
 
     fetch(
-      `http://json-server.devops-playground.com/users?email=${email}&password=${password}`,
+      `https://my-json-server.typicode.com/SafeEHA/blog/users?email=${email}&password=${password}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

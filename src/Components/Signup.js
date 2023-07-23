@@ -37,7 +37,7 @@ const Signup = () => {
 
     const userCredentials = { email, password };
 
-    fetch("http://json-server.devops-playground.com/users/", {
+    fetch("https://my-json-server.typicode.com/SafeEHA/blog/users/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userCredentials),

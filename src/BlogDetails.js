@@ -16,11 +16,11 @@ const BlogDetails = () => {
     error,
     isPending,
     setData,
-  } = useFetch("http://json-server.devops-playground.com/blogs/" + id);
+  } = useFetch("https://my-json-server.typicode.com/SafeEHA/blog/blogs/" + id);
   const history = useHistory();
 
   const handleDelete = () => {
-    fetch("http://json-server.devops-playground.com/blogs/" + blog.id, {
+    fetch("https://my-json-server.typicode.com/SafeEHA/blog/blogs/" + blog.id, {
       method: "DELETE",
     }).then(() => {
       history.push("/");
@@ -36,7 +36,7 @@ const BlogDetails = () => {
       blogObj.image = image;
     }
     console.log("Submitting...");
-    fetch("http://json-server.devops-playground.com/blogs/" + blog.id, {
+    fetch("https://my-json-server.typicode.com/SafeEHA/blog/blogs/" + blog.id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blogObj),
